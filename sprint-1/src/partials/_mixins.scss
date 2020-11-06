@@ -2,7 +2,7 @@
 
 @mixin video-controls-common {
   height: 32px;
-  background: rgb(0 0 0 / 0.50);
+  background: $video-control-background;
   border-radius: 4px;
   display: flex;
   align-items: center;
