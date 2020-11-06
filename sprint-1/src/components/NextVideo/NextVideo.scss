@@ -1,0 +1,14 @@
+@use '../../partials/variables'as *;
+
+.next-videos {
+  padding-left: $mobile-right-left-padding;
+  padding-right: $mobile-right-left-padding;
+
+  &__headline {
+    font-size: .75rem;
+    font-weight: 600;
+    color: $next-video-title-font-color;
+    margin-bottom: 2.5rem;
+  }
+
+}

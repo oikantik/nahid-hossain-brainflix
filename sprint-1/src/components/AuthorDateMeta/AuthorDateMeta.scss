@@ -1,0 +1,16 @@
+@use '../../partials/variables'as *;
+
+.author-date-meta {
+  margin-bottom: 2rem;
+
+  &__author-info {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-right: 0.5rem;
+  }
+
+  &__date-info {
+    font-size: 1rem;
+    color: $video-date-text-color;
+  }
+}

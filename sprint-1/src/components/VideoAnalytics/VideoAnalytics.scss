@@ -1,0 +1,35 @@
+@use '../../partials/variables'as *;
+
+.video-analytics {
+  display: flex;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid $video-description-border;
+
+  &__views {
+    display: flex;
+    margin-right: 1.5rem;
+  }
+
+  &__views-icon {
+    display: flex;
+    margin-right: 0.5rem;
+  }
+
+  &__views-count {
+    font-size: 0.875rem;
+  }
+
+  &__favorites {
+    display: flex;
+  }
+
+  &__favorites-icon {
+    display: flex;
+    margin-right: 0.5rem;
+  }
+
+  &__favorites-count {
+    font-size: 0.875rem;
+  }
+}

@@ -1,0 +1,15 @@
+@use '../../partials//variables'as *;
+
+.video-description {
+  display: flex;
+  flex-direction: column;
+  padding-left: $mobile-right-left-padding;
+  padding-right: $mobile-right-left-padding;
+  margin-bottom: 2.5rem;
+
+  &__title {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    margin-bottom: 1rem;
+  }
+}

@@ -1,0 +1,59 @@
+@use '../../partials/variables'as *;
+@use '../../partials/mixins'as *;
+
+.video-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+  margin-bottom: 2rem;
+
+  &__video {
+    width: 100%;
+    height: calc((100vw/2) + 1.4375rem);
+    object-fit: cover;
+  }
+}
+
+.video-controls {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 1rem;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__play-pause {
+    margin-right: 0.5rem;
+    min-width: 48px;
+    @include video-controls-common;
+  }
+
+  &__progress {
+    margin-right: 0.5rem;
+    width: 100%;
+    @include video-controls-common;
+  }
+
+  &__progress-line {
+    width: 100%;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    border: 2px solid #000000;
+  }
+
+  &__rest {
+    min-width: 78px;
+    @include video-controls-common;
+  }
+
+  &__full-screen {
+    margin-right: .875rem;
+    display: flex;
+  }
+
+  &__volume {
+    display: flex;
+  }
+}

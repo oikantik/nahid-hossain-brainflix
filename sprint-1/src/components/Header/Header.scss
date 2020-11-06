@@ -1,0 +1,15 @@
+@use '../../partials/variables'as *;
+
+
+.header {
+  display: flex;
+  flex-direction: column;
+  padding-left: $mobile-right-left-padding;
+  padding-right: $mobile-right-left-padding;
+  height: 169px;
+}
+
+.header-button-avatar {
+  display: flex;
+  margin-bottom: 1rem;
+}

@@ -1,0 +1,20 @@
+@use '../../partials/variables'as *;
+
+.comments {
+  padding-left: $mobile-right-left-padding;
+  padding-right: $mobile-right-left-padding;
+  margin-bottom: 2.5rem;
+
+  &__headline {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+  }
+}
+
+.comment-form-area {
+  display: flex;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid $comments-form-bottom-border-color;
+  margin-bottom: 1.5rem;
+}
