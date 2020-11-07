@@ -7,14 +7,14 @@ import "./VideoDescription.scss";
 function VideoDescription(props) {
   const { title, views, likes, channel, timestamp, description } = props;
   return (
-    <section className="video-description">
+    <div className="video-description">
       <h1 className="video-description__title">{title}</h1>
       <div className="additional-information">
         <AuthorDateMeta channel={channel} timestamp={timestamp} />
         <VideoAnalytics views={views} likes={likes} />
       </div>
       <VideoDescriptionBody description={description} />
-    </section>
+    </div>
   );
 }
 

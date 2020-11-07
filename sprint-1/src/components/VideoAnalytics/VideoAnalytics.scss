@@ -1,8 +1,12 @@
 @use '../../partials/variables'as *;
+@use '../../partials/mixins'as *;
 
 .video-analytics {
   display: flex;
 
+  @include desktop {
+    margin-right: 2rem;
+  }
 
   &__views {
     display: flex;

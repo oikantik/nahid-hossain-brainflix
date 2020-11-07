@@ -6,6 +6,12 @@
   }
 }
 
+@mixin desktop {
+  @media (min-width: $desktop-viewport) {
+    @content;
+  }
+}
+
 @mixin video-controls-common {
   height: 32px;
   background: $video-control-background;

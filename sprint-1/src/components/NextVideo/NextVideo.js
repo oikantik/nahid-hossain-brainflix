@@ -13,10 +13,10 @@ function NextVideo(props) {
     );
   });
   return (
-    <aside className="next-videos">
+    <div className="next-videos">
       <h5 className="next-videos__headline">NEXT VIDEO</h5>
       <section className="next-video">{nextVideos}</section>
-    </aside>
+    </div>
   );
 }
 

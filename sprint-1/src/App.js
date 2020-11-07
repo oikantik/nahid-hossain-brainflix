@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./App.scss";
 import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
-import NextVideo from "./components/NextVideo/NextVideo";
 import { mainVideo, sideVideo } from "./utils/data";
 
 class App extends Component {
@@ -23,8 +22,8 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <Main mainVideoInfo={this.state.mainVideo} />
-        <NextVideo
+        <Main
+          mainVideoInfo={this.state.mainVideo}
           nextVideos={this.state.sideVideo}
           onSelectVideo={this.onSelectVideo}
         />

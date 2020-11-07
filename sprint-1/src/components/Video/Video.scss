@@ -10,6 +10,12 @@
     padding-right: 2.125rem;
     margin-bottom: 3rem;
   }
+
+  @include desktop {
+    padding-left: calc(10% + 2.5rem);
+    padding-right: calc(10% + 2.5rem);
+
+  }
 }
 
 .video-container {
@@ -26,7 +32,7 @@
 
     @include tablet {
       height: calc((100vw/2) + 1rem);
-      max-height: 800px;
+      max-height: 540px;
     }
 
   }

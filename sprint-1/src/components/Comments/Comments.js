@@ -9,14 +9,14 @@ function Comments(props) {
     return <CommentsArea comment={comment} key={comment.id} />;
   });
   return (
-    <section className="comments">
+    <div className="comments">
       <h3 className="comments__headline">{props.comments.length} Comments</h3>
       <div className="comment-form-area">
         <Avatar additionalClassName="avatar__image--comments" />
         <CommentsForm />
       </div>
       <div className="comments-areas">{comments}</div>
-    </section>
+    </div>
   );
 }
 

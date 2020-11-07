@@ -8,6 +8,10 @@
   margin-bottom: 1rem;
   border-bottom: 2px solid $comments-form-bottom-border-color;
 
+  @include desktop {
+    min-width: 712px;
+  }
+
   &__avatar {
     min-width: 48px;
     height: 48px;
@@ -21,6 +25,10 @@
 
   @include tablet {
     width: calc(100vw - 9rem);
+  }
+
+  @include desktop {
+    width: 100%;
   }
 
 

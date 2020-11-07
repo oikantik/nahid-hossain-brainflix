@@ -4,14 +4,14 @@
 .video-description {
   display: flex;
   flex-direction: column;
-  padding-left: $mobile-right-left-padding;
-  padding-right: $mobile-right-left-padding;
   margin-bottom: 2.5rem;
 
   @include tablet {
-    padding-left: $tablet-right-left-padding;
-    padding-right: $tablet-right-left-padding;
     margin-bottom: 4rem;
+  }
+
+  @include desktop {
+    margin-bottom: 3rem;
   }
 
   &__title {

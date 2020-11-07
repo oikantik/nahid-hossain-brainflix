@@ -17,6 +17,11 @@
     align-items: center;
     justify-content: space-between;
   }
+
+  @include desktop {
+    padding-left: $desktop-right-left-padding;
+    padding-right: $desktop-right-left-padding;
+  }
 }
 
 .header-button-avatar {

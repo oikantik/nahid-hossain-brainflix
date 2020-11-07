@@ -2,13 +2,6 @@
 @use '../../partials/mixins'as *;
 
 .next-videos {
-  padding-left: $mobile-right-left-padding;
-  padding-right: $mobile-right-left-padding;
-
-  @include tablet {
-    padding-left: $tablet-right-left-padding;
-    padding-right: $tablet-right-left-padding;
-  }
 
   &__headline {
     font-size: .75rem;

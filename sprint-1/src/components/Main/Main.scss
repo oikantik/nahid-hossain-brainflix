@@ -1,0 +1,25 @@
+@use '../../partials/mixins'as *;
+@use '../../partials/variables'as *;
+
+.main-container {
+  padding-left: $mobile-right-left-padding;
+  padding-right: $mobile-right-left-padding;
+
+  @include tablet {
+    padding-left: $tablet-right-left-padding;
+    padding-right: $tablet-right-left-padding;
+  }
+
+  @include desktop {
+    display: flex;
+    padding-left: $desktop-right-left-padding;
+    padding-right: $desktop-right-left-padding;
+  }
+
+}
+
+.content {
+  @include desktop {
+    margin-right: 1.5rem;
+  }
+}
