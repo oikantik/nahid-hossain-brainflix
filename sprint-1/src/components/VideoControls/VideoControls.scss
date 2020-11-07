@@ -10,16 +10,35 @@
   align-items: center;
   justify-content: center;
 
+  @include tablet {
+    bottom: 1rem;
+    left: .5rem;
+    right: .5rem;
+  }
+
   &__play-pause {
     margin-right: 0.5rem;
     min-width: 48px;
     @include video-controls-common;
+
+    @include tablet {
+      min-width: 53px;
+      margin-right: 1rem;
+    }
   }
 
   &__progress {
     margin-right: 0.5rem;
     width: 100%;
     @include video-controls-common;
+
+    @include tablet {
+      margin-right: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+    }
   }
 
   &__progress-line {
@@ -28,11 +47,30 @@
     margin-right: 1rem;
     border: 2px solid #000000;
     border-radius: 4px;
+
+
+  }
+
+  &__length {
+    display: none;
+
+    @include tablet {
+      display: flex;
+      font-size: 0.625rem;
+      color: #ffffff;
+      max-width: 50px;
+      width: 100%;
+      margin-right: 1rem;
+    }
   }
 
   &__rest {
     min-width: 78px;
     @include video-controls-common;
+
+    @include tablet {
+      min-width: 80px;
+    }
   }
 
   &__full-screen {

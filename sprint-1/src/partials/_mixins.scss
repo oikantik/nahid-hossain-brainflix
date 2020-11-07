@@ -1,5 +1,11 @@
 @use './variables'as *;
 
+@mixin tablet {
+  @media (min-width: $tablet-viewport) {
+    @content;
+  }
+}
+
 @mixin video-controls-common {
   height: 32px;
   background: $video-control-background;

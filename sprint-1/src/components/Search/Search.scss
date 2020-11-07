@@ -1,8 +1,14 @@
 @use '../../partials/variables'as *;
+@use '../../partials/mixins'as *;
 
 .header-search {
 
   margin-bottom: 0.5rem;
+
+  @include tablet {
+    margin-bottom: 0rem;
+    margin-right: 1.5rem;
+  }
 
   &__input-icon {
     position: relative;

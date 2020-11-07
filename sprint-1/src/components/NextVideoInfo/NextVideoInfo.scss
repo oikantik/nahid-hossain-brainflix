@@ -1,3 +1,5 @@
+@use '../../partials/mixins'as *;
+
 .next-video-info {
 
   display: flex;
@@ -9,8 +11,8 @@
 
   &__thumbnail-image {
 
-    width: calc((100vw/2) - 2.5rem);
-    height: calc((100vw/4) - .625rem);
+    width: 120px;
+    height: 70px;
     object-fit: cover;
     border-radius: 4px;
   }
@@ -19,12 +21,21 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+
+    @include tablet {
+      width: 200px;
+    }
   }
 
   &__title {
     font-size: 0.875rem;
     font-weight: 600;
     margin-bottom: 1rem;
+
+    @include tablet {
+      margin-bottom: 0.775rem;
+      font-size: 1rem;
+    }
   }
 
   &__author {

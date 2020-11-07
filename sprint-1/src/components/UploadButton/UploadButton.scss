@@ -7,6 +7,11 @@
   margin-right: 1rem;
   @include buttons;
 
+  @include tablet {
+    margin-right: 1.5rem;
+    width: 100px;
+  }
+
   &__icon {
     margin-right: 0.5rem;
   }

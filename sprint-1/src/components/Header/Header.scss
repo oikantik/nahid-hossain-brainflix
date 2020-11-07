@@ -1,4 +1,5 @@
 @use '../../partials/variables'as *;
+@use '../../partials/mixins'as *;
 
 
 .header {
@@ -7,9 +8,22 @@
   padding-left: $mobile-right-left-padding;
   padding-right: $mobile-right-left-padding;
   height: 169px;
+
+  @include tablet {
+    flex-direction: row;
+    padding-left: $tablet-right-left-padding;
+    padding-right: $tablet-right-left-padding;
+    height: 80px;
+    align-items: center;
+    justify-content: space-between;
+  }
 }
 
 .header-button-avatar {
   display: flex;
   margin-bottom: 1rem;
+
+  @include tablet {
+    margin-bottom: 0rem;
+  }
 }

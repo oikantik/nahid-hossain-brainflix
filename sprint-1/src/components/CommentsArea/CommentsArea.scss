@@ -1,4 +1,5 @@
 @use '../../partials/variables'as *;
+@use '../../partials/mixins'as *;
 
 .comments-area {
   display: flex;
@@ -18,15 +19,28 @@
 
 .comments-content {
 
+  @include tablet {
+    width: calc(100vw - 9rem);
+  }
+
+
   &__top {
     display: flex;
     justify-content: space-between;
     margin-bottom: 1rem;
+
+    @include tablet {
+      justify-content: normal;
+    }
   }
 
   &__top-name {
     font-weight: 600;
     font-size: 0.875rem;
+
+    @include tablet {
+      margin-right: 0.5rem;
+    }
   }
 
   &__top-date {

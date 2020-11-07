@@ -7,12 +7,14 @@ function CommentsForm() {
       <label htmlFor="comments" className="comments-form__label">
         JOIN THE CONVERSATION
       </label>
-      <textarea
-        name="comment"
-        className="comments-form__input"
-        placeholder="Write comment here"
-      ></textarea>
-      <button className="comments-form__button">COMMENT</button>
+      <div className="comments-form__fieldset">
+        <textarea
+          name="comment"
+          className="comments-form__input"
+          placeholder="Write comment here"
+        ></textarea>
+        <button className="comments-form__button">COMMENT</button>
+      </div>
     </form>
   );
 }

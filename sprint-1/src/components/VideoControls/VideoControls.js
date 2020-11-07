@@ -16,6 +16,7 @@ function VideoControls() {
       </div>
       <div className="video-controls__progress">
         <span className="video-controls__progress-line"></span>
+        <span className="video-controls__length">0.00 / 0.42</span>
       </div>
       <div className="video-controls__rest">
         <span className="video-controls__full-screen">
