@@ -31,6 +31,10 @@
     font-size: 0.875rem;
     font-weight: 600;
     margin-bottom: 1rem;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 
     @include tablet {
       margin-bottom: 0.775rem;

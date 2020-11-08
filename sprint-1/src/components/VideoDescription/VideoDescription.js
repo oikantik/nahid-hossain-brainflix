@@ -4,8 +4,14 @@ import VideoAnalytics from "../VideoAnalytics/VideoAnalytics";
 import VideoDescriptionBody from "../VideoDescriptionBody/VideoDescriptionBody";
 import "./VideoDescription.scss";
 
-function VideoDescription(props) {
-  const { title, views, likes, channel, timestamp, description } = props;
+function VideoDescription({
+  title,
+  views,
+  likes,
+  channel,
+  timestamp,
+  description,
+}) {
   return (
     <div className="video-description">
       <h1 className="video-description__title">{title}</h1>

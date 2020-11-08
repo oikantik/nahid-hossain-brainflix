@@ -6,6 +6,7 @@
   margin-bottom: 0.5rem;
 
   @include tablet {
+    margin-left: auto;
     margin-bottom: 0rem;
     margin-right: 1.5rem;
   }

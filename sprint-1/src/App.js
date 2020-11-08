@@ -5,11 +5,14 @@ import Main from "./components/Main/Main";
 import { mainVideo, sideVideo } from "./utils/data";
 
 class App extends Component {
+  // filtering the sidevideos in state based on the main video array's first element
   state = {
     sideVideo: sideVideo.filter((each) => each.id !== mainVideo[0].id),
     mainVideo: mainVideo[0],
   };
 
+  // when a sidebar video is selected set State to show the updated videos
+  // set the main video to be the selected video
   onSelectVideo = (id) => {
     this.setState({
       ...this.state,

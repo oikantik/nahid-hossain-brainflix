@@ -2,8 +2,7 @@ import React from "react";
 import "./AuthorDateMeta.scss";
 import momentAgo from "../../utils/date";
 
-function AuthorDateMeta(props) {
-  const { channel, timestamp } = props;
+function AuthorDateMeta({ channel, timestamp }) {
   return (
     <div className="author-date-meta">
       <span className="author-date-meta__author-info">{channel}</span>

@@ -2,8 +2,7 @@ import React from "react";
 import "./CommentsArea.scss";
 import momentsAgo from "../../utils/date";
 
-function CommentsArea(props) {
-  const { name, date, comment } = props.comment;
+function CommentsArea({ name, date, comment }) {
   return (
     <div className="comments-area">
       <div className="comments-area__avatar"></div>

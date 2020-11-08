@@ -3,8 +3,7 @@ import "./VideoAnalytics.scss";
 import videoViewIcon from "../../assets/icons/SVG/Icon-views.svg";
 import videoFavIcon from "../../assets/icons/SVG/Icon-likes.svg";
 
-function VideoAnalytics(props) {
-  const { views, likes } = props;
+function VideoAnalytics({ views, likes }) {
   return (
     <div className="video-analytics">
       <div className="video-analytics__views">

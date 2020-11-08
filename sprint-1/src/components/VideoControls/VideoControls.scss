@@ -25,6 +25,10 @@
       min-width: 53px;
       margin-right: 1rem;
     }
+
+    @include desktop {
+      min-width: 60px;
+    }
   }
 
   &__progress {
@@ -70,6 +74,10 @@
 
     @include tablet {
       min-width: 80px;
+    }
+
+    @include desktop {
+      min-width: 85px;
     }
   }
 

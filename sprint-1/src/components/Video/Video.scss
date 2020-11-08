@@ -27,7 +27,7 @@
   &__video {
     width: 100%;
     height: calc((100vw/2) + 1.4375rem);
-    max-height: 400px;
+    max-height: 330px;
     object-fit: cover;
 
     @include tablet {

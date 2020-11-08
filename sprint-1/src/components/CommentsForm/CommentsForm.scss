@@ -44,7 +44,7 @@
     }
 
     @include desktop {
-      width: 436px;
+      width: 73.425%;
     }
   }
 
@@ -55,6 +55,10 @@
     color: $comment-button-color;
     font-size: 0.875rem;
     font-weight: 600;
+
+    &:hover {
+      background-color: $cta-hover-color;
+    }
 
     @include tablet {
       width: 160px;

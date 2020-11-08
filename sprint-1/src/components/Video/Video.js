@@ -2,8 +2,7 @@ import React from "react";
 import "./Video.scss";
 import VideoControls from "../VideoControls/VideoControls";
 
-function Video(props) {
-  const { posterImage, duration, videoUrl } = props;
+function Video({ posterImage, duration, videoUrl }) {
   return (
     <section className="video">
       <div className="video-container">
