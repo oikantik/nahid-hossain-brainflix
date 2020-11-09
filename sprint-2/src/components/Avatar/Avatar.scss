@@ -1,0 +1,12 @@
+.avatar {
+  &__image {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  &__image--comments {
+    margin-top: 1.25rem;
+  }
+}

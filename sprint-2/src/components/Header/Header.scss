@@ -1,0 +1,34 @@
+@use '../../partials/variables'as *;
+@use '../../partials/mixins'as *;
+
+
+.header {
+  display: flex;
+  flex-direction: column;
+  padding-left: $mobile-right-left-padding;
+  padding-right: $mobile-right-left-padding;
+  height: 169px;
+
+  @include tablet {
+    flex-direction: row;
+    padding-left: $tablet-right-left-padding;
+    padding-right: $tablet-right-left-padding;
+    height: 80px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  @include desktop {
+    padding-left: $desktop-right-left-padding;
+    padding-right: $desktop-right-left-padding;
+  }
+}
+
+.header-button-avatar {
+  display: flex;
+  margin-bottom: 1rem;
+
+  @include tablet {
+    margin-bottom: 0rem;
+  }
+}

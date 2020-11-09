@@ -1,0 +1,42 @@
+@use '../../partials/variables'as *;
+@use '../../partials/mixins'as *;
+
+.video {
+  margin-bottom: 2rem;
+
+  @include tablet {
+    background: #000000;
+    padding-left: 2.125rem;
+    padding-right: 2.125rem;
+    margin-bottom: 3rem;
+  }
+
+  @include desktop {
+    padding-left: calc(10% + 2.5rem);
+    padding-right: calc(10% + 2.5rem);
+
+  }
+}
+
+.video-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+
+  &__video {
+    width: 100%;
+    height: calc((100vw/2) + 1.4375rem);
+    max-height: 330px;
+    object-fit: cover;
+
+    @include tablet {
+      height: calc((100vw/2) + 1rem);
+      max-height: 540px;
+    }
+
+  }
+
+
+
+}

@@ -1,0 +1,27 @@
+@use '../../partials//variables'as *;
+@use '../../partials/mixins'as *;
+
+.video-description {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2.5rem;
+
+  @include tablet {
+    margin-bottom: 4rem;
+  }
+
+  @include desktop {
+    margin-bottom: 3rem;
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    margin-bottom: 1rem;
+
+    @include tablet {
+      font-size: 2.25rem;
+      margin-bottom: 1.5rem;
+    }
+  }
+}

@@ -1,0 +1,13 @@
+@use '../../partials/variables'as *;
+@use '../../partials/mixins'as *;
+
+.next-videos {
+
+  &__headline {
+    font-size: .75rem;
+    font-weight: 600;
+    color: $next-video-title-font-color;
+    margin-bottom: 2.5rem;
+  }
+
+}
