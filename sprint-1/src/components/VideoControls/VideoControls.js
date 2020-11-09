@@ -15,7 +15,9 @@ function VideoControls() {
         />
       </div>
       <div className="video-controls__progress">
-        <span className="video-controls__progress-line"></span>
+        <progress className="video-controls__progress-line" value="0" min="0">
+          <span className="video-controls__progress-bar"></span>
+        </progress>
         <span className="video-controls__length">0.00 / 0.42</span>
       </div>
       <div className="video-controls__rest">
