@@ -8,8 +8,10 @@ function Upload() {
     <main className="upload">
       <section className="upload-form-container">
         <h1 className="upload-form-container__headline">Upload Video</h1>
-        <UploadFormThumb />
-        <UploadForm />
+        <div className="upload-form-container__main">
+          <UploadFormThumb />
+          <UploadForm />
+        </div>
       </section>
     </main>
   );

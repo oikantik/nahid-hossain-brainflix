@@ -4,11 +4,14 @@
 .upload-form-thumbnail {
   display: flex;
   flex-direction: column;
-  width: 100%;
   margin-bottom: 2rem;
 
   @include tablet {
     margin-bottom: 2.5rem;
+  }
+
+  @include desktop {
+    margin-right: 1.5rem;
   }
 
   &__headline {
@@ -24,5 +27,10 @@
     object-fit: cover;
     height: calc((100vw/2) - 0.4375rem);
     max-height: 183px;
+
+    @include tablet {
+      width: 344px;
+      height: 183px;
+    }
   }
 }

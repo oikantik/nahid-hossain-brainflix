@@ -5,6 +5,10 @@
   display: flex;
   flex-direction: column;
 
+  @include desktop {
+    width: 100%;
+  }
+
   &__title-label {
     color: $upload-label-font-color;
     font-size: 0.75rem;
