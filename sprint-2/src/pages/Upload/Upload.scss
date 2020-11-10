@@ -1,4 +1,5 @@
 @use '../../partials/variables'as *;
+@use '../../partials/mixins'as *;
 
 .upload {
   margin-top: .5rem;
@@ -10,9 +11,14 @@
   padding-right: $mobile-right-left-padding;
 
   &__headline {
-
     padding-top: 1.5rem;
     margin-bottom: 2rem;
     font-size: 1.5rem;
+
+    @include tablet {
+      padding-top: 3rem;
+      margin-bottom: 2rem;
+      font-size: 2.25rem;
+    }
   }
 }

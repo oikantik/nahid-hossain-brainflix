@@ -14,4 +14,12 @@
   @include desktop {
     margin-right: 31.8125rem;
   }
+
+  &__image {
+
+    @include tablet {
+      width: 100px;
+    }
+
+  }
 }

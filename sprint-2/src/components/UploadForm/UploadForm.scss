@@ -46,6 +46,10 @@
     padding: 1rem;
     height: 143px;
 
+    @include tablet {
+      margin-bottom: 2.5rem;
+    }
+
     &:focus {
       border: 2px solid $upload-form-border-focus-color
     }
@@ -54,6 +58,13 @@
   &__button-container {
     display: flex;
     flex-direction: column;
+
+    @include tablet {
+      border-top: 1px solid $upload-input-border-color;
+      padding-top: 2.5rem;
+      flex-direction: row-reverse;
+      justify-content: flex-start;
+    }
   }
 
   &__button-publish {
@@ -63,6 +74,10 @@
     height: 48px;
     font-weight: 600;
     font-size: .875rem;
+
+    @include tablet {
+      width: 160px;
+    }
 
     &:hover {
       background-color: $cta-hover-color;
@@ -75,5 +90,9 @@
     color: $upload-button-cancel-text-color;
     font-weight: 600;
     font-size: .875rem;
+
+    @include tablet {
+      margin-right: 3rem;
+    }
   }
 }

@@ -29,6 +29,9 @@
     padding-right: 2.5rem;
     width: 100%;
 
+    &include tablet {
+      width: calc((100vw/3) + 0.25rem)
+    }
   }
 
   &__icon {
