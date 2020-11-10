@@ -1,11 +1,11 @@
 import React from "react";
-import Comments from "../Comments/Comments";
-import Video from "../Video/Video";
-import VideoDescription from "../VideoDescription/VideoDescription";
-import NextVideo from "../NextVideo/NextVideo";
-import "./Main.scss";
+import Comments from "../../components/Comments/Comments";
+import NextVideo from "../../components/NextVideo/NextVideo";
+import Video from "../../components/Video/Video";
+import VideoDescription from "../../components/VideoDescription/VideoDescription";
+import "./Home.scss";
 
-function Main(props) {
+function Home(props) {
   const {
     title,
     image,
@@ -43,4 +43,4 @@ function Main(props) {
   );
 }
 
-export default Main;
+export default Home;

@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.scss";
 import Header from "./components/Header/Header";
-import Main from "./components/Main/Main";
+import Home from "./pages/Home/Home";
+import Upload from "./pages/Upload/Upload";
 import { mainVideo, sideVideo } from "./utils/data";
 
 class App extends Component {
@@ -21,15 +23,24 @@ class App extends Component {
     });
   };
 
+  renderHomeComponent = () => (
+    <Home
+      mainVideoInfo={this.state.mainVideo}
+      nextVideos={this.state.sideVideo}
+      onSelectVideo={this.onSelectVideo}
+    />
+  );
+
   render() {
     return (
       <div className="App">
-        <Header />
-        <Main
-          mainVideoInfo={this.state.mainVideo}
-          nextVideos={this.state.sideVideo}
-          onSelectVideo={this.onSelectVideo}
-        />
+        <Router>
+          <Header />
+          <Switch>
+            <Route exact path="/" render={this.renderHomeComponent} />
+            <Route path="/upload" component={Upload} />
+          </Switch>
+        </Router>
       </div>
     );
   }

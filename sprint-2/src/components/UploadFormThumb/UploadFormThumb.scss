@@ -1,0 +1,21 @@
+@use '../../partials/variables'as *;
+
+.upload-form-thumbnail {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 2rem;
+
+  &__headline {
+    color: $upload-label-font-color;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: .5rem;
+  }
+
+  &__image {
+    width: 100%;
+    object-fit: cover;
+    height: calc((100vw/2) - 0.4375rem)
+  }
+}
