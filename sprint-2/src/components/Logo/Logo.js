@@ -1,13 +1,14 @@
 import React from "react";
 import "./Logo.scss";
 import logoImage from "../../assets/logo/Logo-brainflix.svg";
+import { Link } from "react-router-dom";
 
 function Logo() {
   return (
     <div className="header-logo">
-      <a href="/" className="header-logo__link">
+      <Link to="/" className="header-logo__link">
         <img src={logoImage} alt="logo" className="header-logo__image" />
-      </a>
+      </Link>
     </div>
   );
 }

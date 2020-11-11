@@ -63,6 +63,21 @@ class Home extends Component {
         })
         .catch((error) => console.log(error));
     }
+
+    if (
+      this.props.match.path === "/" &&
+      this.state.mainVideo.id !== this.state.sideVideo[0].id
+    ) {
+      axiosInstance
+        .get("videos/" + this.state.sideVideo[0].id)
+        .then((response) => {
+          this.setState({
+            mainVideo: response.data,
+            refresh: false,
+          });
+        })
+        .catch((error) => console.log(error));
+    }
   }
 
   onCommentSubmit = (comment) => {
