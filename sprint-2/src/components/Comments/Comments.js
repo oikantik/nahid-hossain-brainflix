@@ -9,7 +9,7 @@ function Comments({ comments }) {
     return (
       <CommentsArea
         name={comment.name}
-        date={comment.date}
+        date={comment.timestamp}
         comment={comment.comment}
         key={comment.id}
       />

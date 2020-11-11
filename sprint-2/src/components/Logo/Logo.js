@@ -1,14 +1,13 @@
 import React from "react";
 import "./Logo.scss";
 import logoImage from "../../assets/logo/Logo-brainflix.svg";
-import { Link } from "react-router-dom";
-
+//is it okay to use hyperlinks?
 function Logo() {
   return (
     <div className="header-logo">
-      <Link to="/" className="header-logo__link">
+      <a href="/" className="header-logo__link">
         <img src={logoImage} alt="logo" className="header-logo__image" />
-      </Link>
+      </a>
     </div>
   );
 }

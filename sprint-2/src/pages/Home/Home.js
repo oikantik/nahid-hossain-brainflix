@@ -1,46 +1,85 @@
-import React from "react";
+import React, { Component } from "react";
+import { axiosInstance } from "../../utils/axios";
 import Comments from "../../components/Comments/Comments";
 import NextVideo from "../../components/NextVideo/NextVideo";
 import Video from "../../components/Video/Video";
 import VideoDescription from "../../components/VideoDescription/VideoDescription";
 import "./Home.scss";
+import Loading from "../../components/Loading/Loading";
 
-function Home(props) {
-  const {
-    title,
-    image,
-    duration,
-    video,
-    description,
-    views,
-    likes,
-    timestamp,
-    channel,
-    comments,
-  } = props.mainVideoInfo;
-  return (
-    <main className="main">
-      <Video posterImage={image} duration={duration} videoUrl={video} />
-      <section className="main-container">
-        <div className="content">
-          <VideoDescription
-            title={title}
-            channel={channel}
-            description={description}
-            views={views}
-            likes={likes}
-            timestamp={timestamp}
-          />
-          <Comments comments={comments} />
-        </div>
+class Home extends Component {
+  state = {
+    sideVideo: [],
+    mainVideo: {},
+    loading: true,
+  };
 
-        <NextVideo
-          nextVideos={props.nextVideos}
-          onSelectVideo={props.onSelectVideo}
+  componentDidMount() {
+    axiosInstance
+      .get("videos")
+      .then((response) => {
+        this.setState({
+          sideVideo: response.data,
+        });
+        const mainVideoId = response.data[0].id;
+        axiosInstance.get("videos/" + mainVideoId).then((response) => {
+          this.setState({
+            mainVideo: response.data,
+            loading: false,
+          });
+        });
+      })
+      .catch((error) => console.log(error));
+  }
+
+  componentDidUpdate() {
+    if (
+      this.props.match.params.id &&
+      this.props.match.params.id !== this.state.mainVideo.id
+    ) {
+      console.log("how many");
+      axiosInstance
+        .get("videos/" + this.props.match.params.id)
+        .then((response) => {
+          this.setState({
+            mainVideo: response.data,
+          });
+        })
+        .catch((error) => console.log(error));
+    }
+  }
+
+  render() {
+    return this.state.loading ? (
+      <Loading />
+    ) : (
+      <main className="main">
+        <Video
+          posterImage={this.state.mainVideo.image}
+          duration={this.state.mainVideo.duration}
+          videoUrl={this.state.mainVideo.video}
         />
-      </section>
-    </main>
-  );
+        <section className="main-container">
+          <div className="content">
+            <VideoDescription
+              title={this.state.mainVideo.title}
+              channel={this.state.mainVideo.channel}
+              description={this.state.mainVideo.description}
+              views={this.state.mainVideo.views}
+              likes={this.state.mainVideo.likes}
+              timestamp={this.state.mainVideo.timestamp}
+            />
+            <Comments comments={this.state.mainVideo.comments} />
+          </div>
+
+          <NextVideo
+            currentVideoId={this.state.mainVideo.id}
+            nextVideos={this.state.sideVideo}
+          />
+        </section>
+      </main>
+    );
+  }
 }
 
 export default Home;

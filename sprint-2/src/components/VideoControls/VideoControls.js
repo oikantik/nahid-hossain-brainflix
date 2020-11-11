@@ -4,7 +4,7 @@ import playPauseControlIcon from "../../assets/icons/SVG/Icon-play.svg";
 import fullScreenControlIcon from "../../assets/icons/SVG/Icon-fullscreen.svg";
 import volumeControlIcon from "../../assets/icons/SVG/Icon-volume.svg";
 
-function VideoControls() {
+function VideoControls(props) {
   return (
     <div className="video-controls">
       <div className="video-controls__play-pause">
@@ -18,7 +18,7 @@ function VideoControls() {
         <progress className="video-controls__progress-line" value="0" min="0">
           <span className="video-controls__progress-bar"></span>
         </progress>
-        <span className="video-controls__length">0.00 / 0.42</span>
+        <span className="video-controls__length">0.00 / {props.duration}</span>
       </div>
       <div className="video-controls__rest">
         <span className="video-controls__full-screen">

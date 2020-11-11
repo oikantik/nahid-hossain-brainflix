@@ -1,6 +1,7 @@
 import React from "react";
 import "./Video.scss";
 import VideoControls from "../VideoControls/VideoControls";
+import { apiKey } from "../../utils/axios";
 
 function Video({ posterImage, duration, videoUrl }) {
   return (
@@ -8,7 +9,7 @@ function Video({ posterImage, duration, videoUrl }) {
       <div className="video-container">
         <video
           className="video-container__video"
-          src={videoUrl}
+          src={videoUrl + "?api_key=" + apiKey}
           poster={posterImage}
         ></video>
         <VideoControls duration={duration} />
