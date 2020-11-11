@@ -37,7 +37,6 @@ class Home extends Component {
       this.props.match.params.id &&
       this.props.match.params.id !== this.state.mainVideo.id
     ) {
-      console.log("how many");
       axiosInstance
         .get("videos/" + this.props.match.params.id)
         .then((response) => {
@@ -46,6 +45,11 @@ class Home extends Component {
           });
         })
         .catch((error) => console.log(error));
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
     }
   }
 
