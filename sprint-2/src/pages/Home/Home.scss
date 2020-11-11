@@ -20,6 +20,8 @@
 
 .content {
   @include desktop {
+    padding-top: 3rem;
+    border-right: 2px solid $video-description-border;
     margin-right: 1.5rem;
   }
 }

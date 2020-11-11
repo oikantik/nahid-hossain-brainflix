@@ -60,4 +60,30 @@
   &__main {
     font-size: 0.875rem;
   }
+
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 1rem;
+
+    @include desktop {
+      margin-right: 1rem;
+    }
+
+  }
+
+  &__actions-delete {
+    margin-right: 1rem;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    font-size: .875rem;
+  }
+
+  &__actions-likes {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    font-size: .875rem;
+  }
 }

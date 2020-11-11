@@ -1,9 +1,17 @@
 import React from "react";
 import "./CommentsForm.scss";
 
-function CommentsForm() {
+function CommentsForm(props) {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    props.onCommentSubmit({
+      name: "BrainStation Man",
+      comment: event.target.comment.value,
+    });
+    event.target.reset();
+  };
   return (
-    <form className="comments-form">
+    <form className="comments-form" onSubmit={handleSubmit}>
       <label htmlFor="comments" className="comments-form__label">
         JOIN THE CONVERSATION
       </label>
@@ -13,7 +21,9 @@ function CommentsForm() {
           className="comments-form__input"
           placeholder="Write comment here"
         ></textarea>
-        <button className="comments-form__button">COMMENT</button>
+        <button type="submit" className="comments-form__button">
+          COMMENT
+        </button>
       </div>
     </form>
   );

@@ -12,6 +12,7 @@ class Home extends Component {
     sideVideo: [],
     mainVideo: {},
     loading: true,
+    refresh: false,
   };
 
   componentDidMount() {
@@ -51,11 +52,46 @@ class Home extends Component {
         behavior: "smooth",
       });
     }
+    if (this.state.refresh) {
+      axiosInstance
+        .get("videos/" + this.state.mainVideo.id)
+        .then((response) => {
+          this.setState({
+            mainVideo: response.data,
+            refresh: false,
+          });
+        })
+        .catch((error) => console.log(error));
+    }
   }
+
+  onCommentSubmit = (comment) => {
+    axiosInstance
+      .post("videos/" + this.state.mainVideo.id + "/comments", {
+        ...comment,
+      })
+      .then((response) => {
+        this.setState({
+          refresh: true,
+        });
+      })
+      .catch((error) => console.log(error));
+  };
+
+  onCommentDelete = (id) => {
+    axiosInstance
+      .delete("videos/" + this.state.mainVideo.id + "/comments/" + id)
+      .then((response) => {
+        this.setState({
+          refresh: true,
+        });
+      })
+      .catch((error) => console.log(error));
+  };
 
   render() {
     return this.state.loading ? (
-      <Loading />
+      <Loading message="Videos" />
     ) : (
       <main className="main">
         <Video
@@ -73,7 +109,11 @@ class Home extends Component {
               likes={this.state.mainVideo.likes}
               timestamp={this.state.mainVideo.timestamp}
             />
-            <Comments comments={this.state.mainVideo.comments} />
+            <Comments
+              comments={this.state.mainVideo.comments}
+              onCommentSubmit={this.onCommentSubmit}
+              onCommentDelete={this.onCommentDelete}
+            />
           </div>
 
           <NextVideo
