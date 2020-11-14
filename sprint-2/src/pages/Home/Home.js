@@ -12,10 +12,9 @@ class Home extends Component {
     sideVideo: [],
     mainVideo: {},
     loading: true,
-    refresh: false,
   };
 
-  componentDidMount() {
+  fetchInitialData = () => {
     axiosInstance
       .get("videos")
       .then((response) => {
@@ -31,6 +30,42 @@ class Home extends Component {
         });
       })
       .catch((error) => console.log(error));
+  };
+
+  fetchUpdatedMainVideo = (params) => {
+    axiosInstance
+      .get("videos/" + params)
+      .then((response) => {
+        this.setState({
+          mainVideo: response.data,
+          refresh: false,
+        });
+      })
+      .catch((error) => console.log(error));
+  };
+
+  postNewComments = (comment) => {
+    axiosInstance
+      .post("videos/" + this.state.mainVideo.id + "/comments", {
+        ...comment,
+      })
+      .then(() => {
+        this.fetchUpdatedMainVideo(this.state.mainVideo.id);
+      })
+      .catch((error) => console.log(error));
+  };
+
+  deleteComment = (id) => {
+    axiosInstance
+      .delete("videos/" + this.state.mainVideo.id + "/comments/" + id)
+      .then(() => {
+        this.fetchUpdatedMainVideo(this.state.mainVideo.id);
+      })
+      .catch((error) => console.log(error));
+  };
+
+  componentDidMount() {
+    this.fetchInitialData();
   }
 
   componentDidUpdate() {
@@ -38,70 +73,28 @@ class Home extends Component {
       this.props.match.params.id &&
       this.props.match.params.id !== this.state.mainVideo.id
     ) {
-      axiosInstance
-        .get("videos/" + this.props.match.params.id)
-        .then((response) => {
-          this.setState({
-            mainVideo: response.data,
-          });
-        })
-        .catch((error) => console.log(error));
-
+      this.fetchUpdatedMainVideo(this.props.match.params.id);
       window.scrollTo({
         top: 0,
         behavior: "smooth",
       });
     }
-    if (this.state.refresh) {
-      axiosInstance
-        .get("videos/" + this.state.mainVideo.id)
-        .then((response) => {
-          this.setState({
-            mainVideo: response.data,
-            refresh: false,
-          });
-        })
-        .catch((error) => console.log(error));
-    }
 
     if (
       this.props.match.path === "/" &&
+      this.state.mainVideo.id &&
       this.state.mainVideo.id !== this.state.sideVideo[0].id
     ) {
-      axiosInstance
-        .get("videos/" + this.state.sideVideo[0].id)
-        .then((response) => {
-          this.setState({
-            mainVideo: response.data,
-            refresh: false,
-          });
-        })
-        .catch((error) => console.log(error));
+      this.fetchUpdatedMainVideo(this.state.sideVideo[0].id);
     }
   }
 
   onCommentSubmit = (comment) => {
-    axiosInstance
-      .post("videos/" + this.state.mainVideo.id + "/comments", {
-        ...comment,
-      })
-      .then((response) => {
-        this.setState({
-          refresh: true,
-        });
-      })
-      .catch((error) => console.log(error));
+    this.postNewComments(comment);
   };
 
   onCommentDelete = (id) => {
-    axiosInstance
-      .delete("videos/" + this.state.mainVideo.id + "/comments/" + id)
-      .then((response) => {
-        this.setState({
-          refresh: true,
-        });
-      })
-      .catch((error) => console.log(error));
+    this.deleteComment(id);
   };
 
   render() {

@@ -13,10 +13,12 @@ class Upload extends Component {
   };
 
   componentDidUpdate() {
-    setInterval(
-      () => this.state.submitted && this.props.history.push("/"),
-      3000
-    );
+    setInterval(() => {
+      if (this.state.submitted) {
+        this.setState({ submitted: false });
+        this.props.history.push("/");
+      }
+    }, 3000);
   }
 
   onFormSubmit = (event) => {
