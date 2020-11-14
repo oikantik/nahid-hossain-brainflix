@@ -1,7 +1,6 @@
 import React from "react";
 import AuthorDateMeta from "../AuthorDateMeta/AuthorDateMeta";
 import VideoAnalytics from "../VideoAnalytics/VideoAnalytics";
-import VideoDescriptionBody from "../VideoDescriptionBody/VideoDescriptionBody";
 import "./VideoDescription.scss";
 
 function VideoDescription({
@@ -19,7 +18,9 @@ function VideoDescription({
         <AuthorDateMeta channel={channel} timestamp={timestamp} />
         <VideoAnalytics views={views} likes={likes} />
       </div>
-      <VideoDescriptionBody description={description} />
+      <article className="video-description-body">
+        <p className="video-description-body__text">{description}</p>
+      </article>
     </div>
   );
 }
