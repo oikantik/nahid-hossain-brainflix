@@ -27,6 +27,7 @@
     object-fit: cover;
     height: calc((100vw/2) - 0.4375rem);
     max-height: 183px;
+    border-radius: 4px;
 
     @include tablet {
       width: 344px;
