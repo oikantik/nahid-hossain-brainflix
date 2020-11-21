@@ -4,6 +4,8 @@
 .video {
   margin-bottom: 2rem;
 
+
+
   @include tablet {
     background: #000000;
     padding-left: 2.125rem;
@@ -25,16 +27,36 @@
   width: 100%;
   position: relative;
 
-  &__video {
+
+
+  &__video-area {
+
     width: 100%;
     height: calc((100vw/2) + 1.4375rem);
     max-height: 330px;
     object-fit: cover;
 
+
     @include tablet {
       height: calc((100vw/2) + 1rem);
       max-height: 540px;
     }
+
+    &:fullscreen {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__video {
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+
+    &::-webkit-media-controls {
+      display: none !important;
+    }
+
 
   }
 
