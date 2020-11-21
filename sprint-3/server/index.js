@@ -71,6 +71,17 @@ app.delete("/videos/:videoId/comments/:commentId", (req, res) => {
   res.status(200).json(deletedComment);
 });
 
+app.put("/videos/:videoId/comments/:commentId", (req, res) => {
+  const data = readFileSync();
+  const videoIndex = data.findIndex((item) => item.id === req.params.videoId);
+  const commentIndex = data[videoIndex].comments.findIndex(
+    (item) => item.id === req.params.commentId
+  );
+  data[videoIndex].comments.likes++;
+  writeFileSync(data);
+  res.status(200).json({ message: "like added successfully" });
+});
+
 app.post("/videos", (req, res) => {
   const data = readFileSync();
   const video = {
@@ -89,6 +100,14 @@ app.post("/videos", (req, res) => {
   data.push(video);
   writeFileSync(data);
   res.status(200).json(video);
+});
+
+app.put("/videos/:videoId", (req, res) => {
+  const data = readFileSync();
+  const videoIndex = data.findIndex((item) => item.id === req.params.videoId);
+  data[videoIndex].likes++;
+  writeFileSync(data);
+  res.status(200).json({ message: "like added successfully" });
 });
 
 app.listen(process.env.PORT || 7811, () => {
