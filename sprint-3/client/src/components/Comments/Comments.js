@@ -4,7 +4,12 @@ import CommentsArea from "../CommentsArea/CommentsArea";
 import CommentsForm from "../CommentsForm/CommentsForm";
 import "./Comments.scss";
 
-function Comments({ comments, onCommentSubmit, onCommentDelete }) {
+function Comments({
+  comments,
+  onCommentSubmit,
+  onCommentDelete,
+  onCommentLike,
+}) {
   const allComments = comments
     .sort((a, b) => {
       return b.timestamp - a.timestamp;
@@ -19,6 +24,7 @@ function Comments({ comments, onCommentSubmit, onCommentDelete }) {
           id={comment.id}
           key={comment.id}
           onCommentDelete={onCommentDelete}
+          onCommentLike={onCommentLike}
         />
       );
     });

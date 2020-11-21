@@ -44,6 +44,15 @@ class Home extends Component {
       .catch((error) => console.log(error));
   };
 
+  likeVideo = () => {
+    axiosInstance
+      .put("videos/" + this.state.mainVideo.id)
+      .then(() => {
+        this.fetchUpdatedMainVideo(this.state.mainVideo.id);
+      })
+      .catch((error) => console.log(error));
+  };
+
   postNewComments = (comment) => {
     axiosInstance
       .post("videos/" + this.state.mainVideo.id + "/comments", {
@@ -58,6 +67,15 @@ class Home extends Component {
   deleteComment = (id) => {
     axiosInstance
       .delete("videos/" + this.state.mainVideo.id + "/comments/" + id)
+      .then(() => {
+        this.fetchUpdatedMainVideo(this.state.mainVideo.id);
+      })
+      .catch((error) => console.log(error));
+  };
+
+  likeComment = (id) => {
+    axiosInstance
+      .put("videos/" + this.state.mainVideo.id + "/comments/" + id)
       .then(() => {
         this.fetchUpdatedMainVideo(this.state.mainVideo.id);
       })
@@ -89,12 +107,20 @@ class Home extends Component {
     }
   }
 
+  onVideoLike = () => {
+    this.likeVideo();
+  };
+
   onCommentSubmit = (comment) => {
     this.postNewComments(comment);
   };
 
   onCommentDelete = (id) => {
     this.deleteComment(id);
+  };
+
+  onCommentLike = (id) => {
+    this.likeComment(id);
   };
 
   render() {
@@ -116,11 +142,13 @@ class Home extends Component {
               views={this.state.mainVideo.views}
               likes={this.state.mainVideo.likes}
               timestamp={this.state.mainVideo.timestamp}
+              onVideoLike={this.onVideoLike}
             />
             <Comments
               comments={this.state.mainVideo.comments}
               onCommentSubmit={this.onCommentSubmit}
               onCommentDelete={this.onCommentDelete}
+              onCommentLike={this.onCommentLike}
             />
           </div>
 

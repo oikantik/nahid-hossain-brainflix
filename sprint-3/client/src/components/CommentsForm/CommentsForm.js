@@ -7,7 +7,7 @@ function CommentsForm(props) {
     props.onCommentSubmit({
       name: "BrainStation Man",
       comment: event.target.comment.value,
-      likes: "0",
+      likes: 0,
       timestamp: new Date().getTime(),
     });
     event.target.reset();

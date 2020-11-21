@@ -3,7 +3,10 @@ import "./VideoAnalytics.scss";
 import videoViewIcon from "../../assets/icons/SVG/Icon-views.svg";
 import videoFavIcon from "../../assets/icons/SVG/Icon-likes.svg";
 
-function VideoAnalytics({ views, likes }) {
+function VideoAnalytics({ views, likes, onVideoLike }) {
+  const handleLikeClick = () => {
+    onVideoLike();
+  };
   return (
     <div className="video-analytics">
       <div className="video-analytics__views">
@@ -17,7 +20,10 @@ function VideoAnalytics({ views, likes }) {
         <span className="video-analytics__views-count">{views}</span>
       </div>
       <div className="video-analytics__favorites">
-        <span className="video-analytics__favorites-icon">
+        <span
+          className="video-analytics__favorites-icon"
+          onClick={handleLikeClick}
+        >
           <img
             src={videoFavIcon}
             alt="likes"

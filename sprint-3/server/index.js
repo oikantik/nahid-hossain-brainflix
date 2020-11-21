@@ -77,7 +77,7 @@ app.put("/videos/:videoId/comments/:commentId", (req, res) => {
   const commentIndex = data[videoIndex].comments.findIndex(
     (item) => item.id === req.params.commentId
   );
-  data[videoIndex].comments.likes++;
+  data[videoIndex].comments[commentIndex].likes++;
   writeFileSync(data);
   res.status(200).json({ message: "like added successfully" });
 });

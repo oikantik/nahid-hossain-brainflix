@@ -9,9 +9,13 @@ function CommentsArea({
   likes,
   id,
   onCommentDelete,
+  onCommentLike,
 }) {
   const handleCommentDelete = () => {
     onCommentDelete(id);
+  };
+  const handleCommentLike = () => {
+    onCommentLike(id);
   };
   return (
     <div className="comments-area">
@@ -31,7 +35,10 @@ function CommentsArea({
           >
             Delete
           </button>
-          <button className="comments-content__actions-likes">
+          <button
+            className="comments-content__actions-likes"
+            onClick={handleCommentLike}
+          >
             {likes} Likes
           </button>
         </div>

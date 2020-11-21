@@ -27,7 +27,7 @@ class Upload extends Component {
       image: "http://localhost:7811/Upload-video-preview.jpg",
       description: event.target.description.value,
       views: "0",
-      likes: "0",
+      likes: 0,
       duration: "0:20",
       video: "http://localhost:7811/video.mp4",
       timestamp: new Date().getTime(),
