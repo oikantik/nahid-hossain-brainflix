@@ -1,0 +1,37 @@
+@use '../../partials/variables'as *;
+@use '../../partials/mixins'as *;
+
+.video-analytics {
+  display: flex;
+
+  @include desktop {
+    margin-right: 2rem;
+  }
+
+  &__views {
+    display: flex;
+    margin-right: 1.5rem;
+  }
+
+  &__views-icon {
+    display: flex;
+    margin-right: 0.5rem;
+  }
+
+  &__views-count {
+    font-size: 0.875rem;
+  }
+
+  &__favorites {
+    display: flex;
+  }
+
+  &__favorites-icon {
+    display: flex;
+    margin-right: 0.5rem;
+  }
+
+  &__favorites-count {
+    font-size: 0.875rem;
+  }
+}

@@ -1,0 +1,102 @@
+@use '../../partials/variables'as *;
+@use '../../partials/mixins'as *;
+
+.upload-form {
+  display: flex;
+  flex-direction: column;
+
+  @include desktop {
+    width: 100%;
+  }
+
+  &__title-label {
+    color: $upload-label-font-color;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1.5rem;
+  }
+
+  &__description-label {
+    color: $upload-label-font-color;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1.5rem;
+  }
+
+  &__input {
+    height: 48px;
+    border: 1px solid $upload-input-border-color;
+    background-color: $upload-input-bg-color;
+    outline: none;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    width: 100%;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+
+    &:focus {
+      border: 2px solid $upload-form-border-focus-color
+    }
+  }
+
+  &__text-area {
+    border: 1px solid $upload-input-border-color;
+    background-color: $upload-input-bg-color;
+    outline: none;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    width: 100%;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    height: 143px;
+
+    @include tablet {
+      margin-bottom: 2.5rem;
+    }
+
+    &:focus {
+      border: 2px solid $upload-form-border-focus-color
+    }
+  }
+
+  &__button-container {
+    display: flex;
+    flex-direction: column;
+
+    @include tablet {
+      border-top: 1px solid $upload-input-border-color;
+      padding-top: 2.5rem;
+      flex-direction: row-reverse;
+      justify-content: flex-start;
+    }
+  }
+
+  &__button-publish {
+    @include buttons;
+    margin-bottom: 1.5rem;
+    color: $upload-button-publish-text-color;
+    height: 48px;
+    font-weight: 600;
+    font-size: .875rem;
+
+    @include tablet {
+      width: 160px;
+    }
+
+    &:hover {
+      background-color: $cta-hover-color;
+    }
+  }
+
+  &__button-cancel {
+    margin-bottom: 1.5rem;
+    background-color: transparent;
+    color: $upload-button-cancel-text-color;
+    font-weight: 600;
+    font-size: .875rem;
+
+    @include tablet {
+      margin-right: 3rem;
+    }
+  }
+}

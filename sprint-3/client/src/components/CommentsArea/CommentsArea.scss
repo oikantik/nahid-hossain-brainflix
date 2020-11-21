@@ -1,0 +1,89 @@
+@use '../../partials/variables'as *;
+@use '../../partials/mixins'as *;
+
+.comments-area {
+  display: flex;
+  width: 100%;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid $comments-form-bottom-border-color;
+
+  @include desktop {
+    min-width: 712px;
+  }
+
+  &__avatar {
+    min-width: 48px;
+    height: 48px;
+    background-color: $comments-avatar-background-color;
+    border-radius: 50%;
+    margin-right: 1rem;
+  }
+}
+
+.comments-content {
+
+  @include tablet {
+    width: calc(100vw - 9rem);
+  }
+
+  @include desktop {
+    width: 100%;
+  }
+
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+
+    @include tablet {
+      justify-content: normal;
+    }
+  }
+
+  &__top-name {
+    font-weight: 600;
+    font-size: 0.875rem;
+
+    @include tablet {
+      margin-right: 0.5rem;
+      font-size: 1rem;
+    }
+  }
+
+  &__top-date {
+    font-size: 0.875rem;
+    color: $comment-date-text-color;
+  }
+
+  &__main {
+    font-size: 0.875rem;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 1rem;
+
+    @include desktop {
+      margin-right: 1rem;
+    }
+
+  }
+
+  &__actions-delete {
+    margin-right: 1rem;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    font-size: .875rem;
+  }
+
+  &__actions-likes {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    font-size: .875rem;
+  }
+}

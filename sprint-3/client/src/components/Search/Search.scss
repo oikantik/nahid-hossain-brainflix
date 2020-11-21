@@ -1,0 +1,48 @@
+@use '../../partials/variables'as *;
+@use '../../partials/mixins'as *;
+
+.header-search {
+
+  margin-bottom: 0.5rem;
+
+  @include tablet {
+    margin-left: auto;
+    margin-bottom: 0rem;
+    margin-right: 1.5rem;
+  }
+
+  @include desktop {
+    margin-left: auto;
+  }
+
+  &__input-icon {
+    position: relative;
+  }
+
+  &__input {
+    height: 48px;
+    border: 1px solid $search-border-color;
+    background-color: $upload-input-bg-color;
+    outline: none;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    width: 100%;
+
+    @include tablet {
+      width: 252px;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    top: 0;
+    left: 1rem;
+    width: 20px;
+    height: 48px;
+    background-image: url("../../assets/icons/SVG/Icon-search.svg");
+    background-position: left;
+    background-repeat: no-repeat;
+  }
+}

@@ -1,0 +1,91 @@
+@use '../../partials/variables'as *;
+@use '../../partials/mixins'as *;
+
+
+.header {
+  display: flex;
+  flex-direction: column;
+  padding-left: $mobile-right-left-padding;
+  padding-right: $mobile-right-left-padding;
+  height: 169px;
+
+  @include tablet {
+    flex-direction: row;
+    padding-left: $tablet-right-left-padding;
+    padding-right: $tablet-right-left-padding;
+    height: 80px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  @include desktop {
+    padding-left: $desktop-right-left-padding;
+    padding-right: $desktop-right-left-padding;
+  }
+}
+
+.header-button-avatar {
+  display: flex;
+  margin-bottom: 1rem;
+
+  @include tablet {
+    margin-bottom: 0rem;
+  }
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+
+  @include tablet {
+    margin-right: calc((100vw/4) - 1.4375rem);
+  }
+
+  @include desktop {
+    margin-right: 31.8125rem;
+  }
+
+  &__image {
+
+    @include tablet {
+      width: 100px;
+    }
+
+    @include desktop {
+      width: 112px;
+    }
+
+  }
+}
+
+
+.upload-button {
+  width: 100%;
+  margin-right: 1rem;
+  text-decoration: none;
+  @include buttons;
+
+  &:hover {
+    background-color: $cta-hover-color;
+  }
+
+  @include tablet {
+    margin-right: 1.5rem;
+    width: 103px;
+  }
+
+
+  &__icon {
+    margin-right: 0.5rem;
+  }
+
+  &__text {
+    color: $upload-button-font-color;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+  }
+}

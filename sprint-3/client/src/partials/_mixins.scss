@@ -1,0 +1,36 @@
+@use './variables'as *;
+
+// viewport definition
+
+@mixin tablet {
+  @media (min-width: $tablet-viewport) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $desktop-viewport) {
+    @content;
+  }
+}
+
+// reusable styles for video controls
+@mixin video-controls-common {
+  height: 32px;
+  background: $video-control-background;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// reusable button attributes
+@mixin buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  outline: none;
+  border: none;
+  background-color: $upload-button-background;
+}
