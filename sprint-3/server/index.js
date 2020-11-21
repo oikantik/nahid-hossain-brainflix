@@ -45,7 +45,7 @@ app.get("/videos/:videoId", (req, res) => {
   res.status(200).json(mainVideo(req.params.videoId, readFileSync()));
 });
 
-app.get("/videos/:videoId/comments", (req, res) => {
+app.post("/videos/:videoId/comments", (req, res) => {
   const data = readFileSync();
   const videoIndex = data.findIndex((item) => item.id === req.params.videoId);
   const comment = {
@@ -56,11 +56,19 @@ app.get("/videos/:videoId/comments", (req, res) => {
     likes: req.body.likes,
   };
   data[videoIndex].comments.push(comment);
-  // video.comments.push something.
-  // then how do I add the video back to that position?
-  // add error paths
   writeFileSync(data);
   res.status(200).json(comment);
+});
+
+app.delete("/videos/:videoId/comments/:commentId", (req, res) => {
+  const data = readFileSync();
+  const videoIndex = data.findIndex((item) => item.id === req.params.videoId);
+  const commentIndex = data[videoIndex].comments.findIndex(
+    (item) => item.id === req.params.commentId
+  );
+  const deletedComment = data[videoIndex].comments.splice(commentIndex, 1);
+  writeFileSync(data);
+  res.status(200).json(deletedComment);
 });
 
 app.post("/videos", (req, res) => {
