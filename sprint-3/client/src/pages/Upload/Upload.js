@@ -3,11 +3,10 @@ import UploadForm from "../../components/UploadForm/UploadForm";
 import UploadFormThumb from "../../components/UploadFormThumb/UploadFormThumb";
 import "./Upload.scss";
 import uploadThumnail from "../../assets/images/Upload-video-preview.jpg";
+import { axiosInstance } from "../../utils/axios";
 
 class Upload extends Component {
   state = {
-    videoTitle: "",
-    videDescription: "",
     thumbnailImage: uploadThumnail,
     submitted: false,
   };
@@ -22,10 +21,22 @@ class Upload extends Component {
   }
 
   onFormSubmit = (event) => {
-    this.setState({
-      videoTitle: event.target.title.value,
-      videDescription: event.target.description.value,
-      submitted: true,
+    const video = {
+      title: event.target.title.value,
+      channel: "BrainStation Man",
+      image: "http://localhost:7811/Upload-video-preview.jpg",
+      description: event.target.description.value,
+      views: "0",
+      likes: "0",
+      duration: "0:20",
+      video: "http://localhost:7811/video.mp4",
+      timestamp: new Date().getTime(),
+      comments: [],
+    };
+    axiosInstance.post("videos", { ...video }).then((response) => {
+      this.setState({
+        submitted: true,
+      });
     });
   };
 
