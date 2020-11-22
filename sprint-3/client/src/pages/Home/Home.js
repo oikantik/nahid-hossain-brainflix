@@ -86,10 +86,12 @@ class Home extends Component {
     this.fetchInitialData();
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps) {
+    // if current props id does not match the prev props id, then update
+
     if (
       this.props.match.params.id &&
-      this.props.match.params.id !== this.state.mainVideo.id
+      this.props.match.params.id !== prevProps.match.params.id
     ) {
       this.fetchUpdatedMainVideo(this.props.match.params.id);
       window.scrollTo({

@@ -17,8 +17,12 @@ function NextVideoInfo(props) {
         </Link>
       </div>
       <div className="next-video-info__description">
-        <span className="next-video-info__title">{title}</span>
-        <span className="next-video-info__author">{channel}</span>
+        <Link to={"/video/" + id} className="next-video-info__title-link">
+          <span className="next-video-info__title">{title}</span>
+        </Link>
+        <Link to={"/video/" + id} className="next-video-info__title-link">
+          <span className="next-video-info__author">{channel}</span>
+        </Link>
       </div>
     </div>
   );
