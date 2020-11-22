@@ -11,6 +11,14 @@ class Upload extends Component {
     submitted: false,
   };
 
+  uploadVideo = (video) => {
+    axiosInstance.post("videos", { ...video }).then((response) => {
+      this.setState({
+        submitted: true,
+      });
+    });
+  };
+
   componentDidUpdate() {
     setInterval(() => {
       if (this.state.submitted) {
@@ -33,11 +41,7 @@ class Upload extends Component {
       timestamp: new Date().getTime(),
       comments: [],
     };
-    axiosInstance.post("videos", { ...video }).then((response) => {
-      this.setState({
-        submitted: true,
-      });
-    });
+    this.uploadVideo(video);
   };
 
   render() {
