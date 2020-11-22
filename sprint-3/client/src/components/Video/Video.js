@@ -12,7 +12,7 @@ class Video extends Component {
   state = {
     play: false,
     duration: 0,
-    progress: 0,
+    currentTime: 0,
     fullscreen: false,
     muted: false,
   };
@@ -24,9 +24,8 @@ class Video extends Component {
   };
 
   getDuration = () => {
-    console.log(this.videoRef);
     this.setState({
-      duration: Math.ceil(this.videoRef.current.duration),
+      duration: Math.round(this.videoRef.current.duration),
     });
   };
 
@@ -65,6 +64,23 @@ class Video extends Component {
     }
   };
 
+  onVideoProgress = () => {
+    this.setState({
+      currentTime: Math.round(this.videoRef.current.currentTime),
+    });
+  };
+
+  onScrubberChange = (e) => {
+    this.setState(
+      {
+        currentTime: e.target.value,
+      },
+      () => {
+        this.videoRef.current.currentTime = e.target.value;
+      }
+    );
+  };
+
   render() {
     const { posterImage, videoUrl } = this.props;
     return (
@@ -82,6 +98,7 @@ class Video extends Component {
               type="video/mp4"
               onLoadedMetadata={this.getDuration}
               controls={false}
+              onTimeUpdate={this.onVideoProgress}
             ></video>
             <VideoControls
               duration={this.state.duration}
@@ -91,6 +108,8 @@ class Video extends Component {
               showFullScreen={this.showFullScreen}
               volumeClick={this.volumeClick}
               muted={this.state.muted}
+              currentTime={this.state.currentTime}
+              onScrubberChange={this.onScrubberChange}
             />
           </div>
         </div>

@@ -23,6 +23,10 @@ function VideoControls(props) {
     props.volumeClick();
   };
 
+  const handleProgressChange = (e) => {
+    props.onScrubberChange(e);
+  };
+
   return (
     <div className="video-controls">
       {!props.play && (
@@ -48,11 +52,34 @@ function VideoControls(props) {
         </div>
       )}
       <div className="video-controls__progress">
-        <progress className="video-controls__progress-line" value="0" min="0">
-          <span className="video-controls__progress-bar"></span>
-        </progress>
+        <div className="video-controls__progress-area">
+          <progress
+            className="video-controls__progress-bar"
+            value={props.currentTime}
+            min="0"
+            max={props.duration}
+          ></progress>
+
+          {
+            <input
+              className="video-controls__progress-line"
+              value={props.currentTime}
+              type="range"
+              min="0"
+              max={props.duration}
+              step="1"
+              onChange={handleProgressChange}
+            />
+          }
+        </div>
+
         <span className="video-controls__length">
-          0:00 /{" "}
+          {props.currentTime < 10
+            ? 0 + ":0" + props.currentTime
+            : props.currentTime >= 10 && props.currentTime < 60
+            ? 0 + ":" + props.currentTime
+            : props.currentTime / 60 + ":" + Math.ceil(props.duation % 60)}{" "}
+          /{" "}
           {props.duration < 60
             ? 0 + ":" + props.duration
             : Math.floor(props.duration / 60) +
