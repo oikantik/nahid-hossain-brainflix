@@ -94,6 +94,11 @@
     color: $upload-button-cancel-text-color;
     font-weight: 600;
     font-size: .875rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
 
     @include tablet {
       margin-right: 3rem;

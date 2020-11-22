@@ -1,6 +1,7 @@
 import React from "react";
 import SuccessMessage from "../SuccessMessage/SuccessMessage";
 import "./UploadForm.scss";
+import { Link } from "react-router-dom";
 
 function UploadForm(props) {
   const handleFormSubmit = (event) => {
@@ -38,7 +39,9 @@ function UploadForm(props) {
         <button type="submit" className="upload-form__button-publish">
           PUBLISH
         </button>
-        <button className="upload-form__button-cancel">CANCEL</button>
+        <Link className="upload-form__button-cancel" to="/">
+          CANCEL
+        </Link>
       </div>
     </form>
   );
